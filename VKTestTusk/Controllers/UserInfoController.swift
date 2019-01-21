@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 import SwiftyVK
+import SwiftyJSON
 
 class UserInfoController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
-    var user: [User]?
-    var friend: [Friends]?
+    var user = [User]()
+    var friends = [Friends]()
     
     @IBOutlet weak var currentUserNamelabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -26,13 +26,72 @@ class UserInfoController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let currentUser = user {
-            print(currentUser)
-            currentUserNamelabel.text = currentUser[0].name + " " + currentUser[0].lastName
-        }
-        
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getCurrentUserInfo()
+        getFriend()
+        print("Friends: \(friends)")
+    }
+    
+    func getCurrentUserInfo() {
+        VK.API.Users.get(.empty)
+            .onSuccess {
+                let response = try JSONSerialization.jsonObject(with: $0)
+                let jsonResponse = JSON(response)
+                print(jsonResponse)
+                self.parseJSON(json: jsonResponse, parseType: .currentUser)
+                DispatchQueue.main.async {
+                    self.currentUserNamelabel.text = self.user[0].name + " " + self.user[0].lastName
+                }
+            }
+            .onError({ (error) in
+                print(error)
+            })
+            .send()
+    }
+    
+    func getFriend() {
+        VK.API.Friends.get([
+            .count : "5",
+            .fields : "name"
+            ])
+            .onSuccess {
+                let response = try JSONSerialization.jsonObject(with: $0)
+                let jsonResponse = JSON(response)
+                print(jsonResponse)
+                self.parseJSON(json: jsonResponse, parseType: .friend)
+            }
+            .onError({ (error) in
+                print(error)
+            })
+            .send()        
+    }
+    
+    func parseJSON(json: JSON, parseType: UserType) {
+        switch parseType {
+        case .currentUser:
+            guard let name = json[0]["first_name"].string else {fatalError("userInfo Parse error")}
+            guard let lastname = json[0]["last_name"].string else {fatalError("userInfo Parse error")}
+            let userInfo = User(name: name, lastName: lastname)
+            user.append(userInfo)
+        case .friend:
+            var i = 0
+            for _ in json["items"] {
+                guard let name = json["items"][i]["first_name"].string else {fatalError("userInfo Parse error")}
+                guard let lastname = json["items"][i]["last_name"].string else {fatalError("userInfo Parse error")}
+                let friendInfo = Friends(name: name, lastName: lastname)
+                friends.append(friendInfo)
+                i += 1
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        default:
+            break
+        }
     }
     
     //MARK: - tableView DataSource
@@ -46,24 +105,17 @@ class UserInfoController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let friends = friend {
-            return friends.count
-        } else {
-            return 1
-        }
+        return friends.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        if let friendInfo = friend {
-            let friends = friendInfo[indexPath.row]
+        print(friends)
+        let friend = friends[indexPath.row]
             //getting first and last name in one label with space
-            cell.textLabel?.text = friends.name + " " + friends.lastName
-        } else {
-            cell.textLabel?.text = "No friends"
-        }
+        cell.textLabel?.text = friend.name + " " + friend.lastName
+        
         
         return cell
     }

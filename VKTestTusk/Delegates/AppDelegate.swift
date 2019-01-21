@@ -15,10 +15,10 @@ var vkDelegateReference : SwiftyVKDelegate?
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let loginController = LoginViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        vkDelegateReference = VKDelegate()
+        vkDelegateReference = VKDelegate()        
         return true
     }
 
