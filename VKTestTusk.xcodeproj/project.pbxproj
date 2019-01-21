@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		659F116A02DE8CE5649F43BC /* Pods_VKTestTusk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34574815D8FE498525434F4E /* Pods_VKTestTusk.framework */; };
 		E11C03D921F5DB38000A8C62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C03D821F5DB38000A8C62 /* AppDelegate.swift */; };
 		E11C03DB21F5DB38000A8C62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C03DA21F5DB38000A8C62 /* ViewController.swift */; };
 		E11C03DE21F5DB38000A8C62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11C03DC21F5DB38000A8C62 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D5A29789E31BE3FDBD5B1C6 /* Pods-VKTestTusk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKTestTusk.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKTestTusk/Pods-VKTestTusk.release.xcconfig"; sourceTree = "<group>"; };
+		34574815D8FE498525434F4E /* Pods_VKTestTusk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKTestTusk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF3A4E6B021F1A008ED02C5 /* Pods-VKTestTusk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKTestTusk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKTestTusk/Pods-VKTestTusk.debug.xcconfig"; sourceTree = "<group>"; };
 		E11C03D521F5DB38000A8C62 /* VKTestTusk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKTestTusk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C03D821F5DB38000A8C62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E11C03DA21F5DB38000A8C62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				659F116A02DE8CE5649F43BC /* Pods_VKTestTusk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5801D030EE07CCB508142EDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34574815D8FE498525434F4E /* Pods_VKTestTusk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AEE061D4ED3CFA1A0C7C5061 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABF3A4E6B021F1A008ED02C5 /* Pods-VKTestTusk.debug.xcconfig */,
+				0D5A29789E31BE3FDBD5B1C6 /* Pods-VKTestTusk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E11C03CC21F5DB37000A8C62 = {
 			isa = PBXGroup;
 			children = (
 				E11C03D721F5DB38000A8C62 /* VKTestTusk */,
 				E11C03D621F5DB38000A8C62 /* Products */,
+				AEE061D4ED3CFA1A0C7C5061 /* Pods */,
+				5801D030EE07CCB508142EDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E11C03E721F5DB3A000A8C62 /* Build configuration list for PBXNativeTarget "VKTestTusk" */;
 			buildPhases = (
+				79435224128FF7BF3471A3AB /* [CP] Check Pods Manifest.lock */,
 				E11C03D121F5DB38000A8C62 /* Sources */,
 				E11C03D221F5DB38000A8C62 /* Frameworks */,
 				E11C03D321F5DB38000A8C62 /* Resources */,
+				BF93BC0A75AC0A4DE0A878CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79435224128FF7BF3471A3AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VKTestTusk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF93BC0A75AC0A4DE0A878CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VKTestTusk/Pods-VKTestTusk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyVK/SwiftyVK.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyVK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKTestTusk/Pods-VKTestTusk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E11C03D121F5DB38000A8C62 /* Sources */ = {
@@ -280,15 +345,13 @@
 		};
 		E11C03E821F5DB3A000A8C62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF3A4E6B021F1A008ED02C5 /* Pods-VKTestTusk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ECB249Q5JR;
 				INFOPLIST_FILE = VKTestTusk/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaniilOnishchenko.VKTestTusk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +361,13 @@
 		};
 		E11C03E921F5DB3A000A8C62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D5A29789E31BE3FDBD5B1C6 /* Pods-VKTestTusk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ECB249Q5JR;
 				INFOPLIST_FILE = VKTestTusk/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaniilOnishchenko.VKTestTusk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
