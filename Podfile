@@ -7,5 +7,6 @@ target 'VKTestTusk' do
 
   # Pods for VKTestTusk
 pod 'SwiftyVK'
+pod 'SwiftyJSON'
 
 end

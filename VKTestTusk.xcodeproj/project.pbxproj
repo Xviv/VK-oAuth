@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		659F116A02DE8CE5649F43BC /* Pods_VKTestTusk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34574815D8FE498525434F4E /* Pods_VKTestTusk.framework */; };
 		E11C03D921F5DB38000A8C62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C03D821F5DB38000A8C62 /* AppDelegate.swift */; };
-		E11C03DB21F5DB38000A8C62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C03DA21F5DB38000A8C62 /* ViewController.swift */; };
+		E11C03DB21F5DB38000A8C62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C03DA21F5DB38000A8C62 /* LoginViewController.swift */; };
 		E11C03DE21F5DB38000A8C62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11C03DC21F5DB38000A8C62 /* Main.storyboard */; };
 		E11C03E021F5DB3A000A8C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11C03DF21F5DB3A000A8C62 /* Assets.xcassets */; };
 		E11C03E321F5DB3A000A8C62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11C03E121F5DB3A000A8C62 /* LaunchScreen.storyboard */; };
+		E185EA8221F5E14800308D0E /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185EA8121F5E14800308D0E /* VKDelegate.swift */; };
+		E1A5033821F5EB460053A6AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5033721F5EB460053A6AE /* User.swift */; };
+		E1A5033A21F5EB550053A6AE /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5033921F5EB550053A6AE /* Friends.swift */; };
+		E1A5034121F5F3E10053A6AE /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5034021F5F3E10053A6AE /* UserInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +25,15 @@
 		ABF3A4E6B021F1A008ED02C5 /* Pods-VKTestTusk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKTestTusk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKTestTusk/Pods-VKTestTusk.debug.xcconfig"; sourceTree = "<group>"; };
 		E11C03D521F5DB38000A8C62 /* VKTestTusk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKTestTusk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11C03D821F5DB38000A8C62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E11C03DA21F5DB38000A8C62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E11C03DA21F5DB38000A8C62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E11C03DD21F5DB38000A8C62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E11C03DF21F5DB3A000A8C62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E11C03E221F5DB3A000A8C62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E11C03E421F5DB3A000A8C62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E185EA8121F5E14800308D0E /* VKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
+		E1A5033721F5EB460053A6AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1A5033921F5EB550053A6AE /* Friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
+		E1A5034021F5F3E10053A6AE /* UserInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +86,50 @@
 		E11C03D721F5DB38000A8C62 /* VKTestTusk */ = {
 			isa = PBXGroup;
 			children = (
-				E11C03D821F5DB38000A8C62 /* AppDelegate.swift */,
-				E11C03DA21F5DB38000A8C62 /* ViewController.swift */,
-				E11C03DC21F5DB38000A8C62 /* Main.storyboard */,
+				E1A5033F21F5F3C60053A6AE /* Delegates */,
+				E1A5033E21F5F3AC0053A6AE /* Controllers */,
+				E1A5033D21F5F3A20053A6AE /* View */,
 				E11C03DF21F5DB3A000A8C62 /* Assets.xcassets */,
-				E11C03E121F5DB3A000A8C62 /* LaunchScreen.storyboard */,
 				E11C03E421F5DB3A000A8C62 /* Info.plist */,
+				E1A5033C21F5F38A0053A6AE /* Model */,
 			);
 			path = VKTestTusk;
+			sourceTree = "<group>";
+		};
+		E1A5033C21F5F38A0053A6AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1A5033721F5EB460053A6AE /* User.swift */,
+				E1A5033921F5EB550053A6AE /* Friends.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1A5033D21F5F3A20053A6AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E11C03DC21F5DB38000A8C62 /* Main.storyboard */,
+				E11C03E121F5DB3A000A8C62 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1A5033E21F5F3AC0053A6AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E11C03DA21F5DB38000A8C62 /* LoginViewController.swift */,
+				E1A5034021F5F3E10053A6AE /* UserInfoController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E1A5033F21F5F3C60053A6AE /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E11C03D821F5DB38000A8C62 /* AppDelegate.swift */,
+				E185EA8121F5E14800308D0E /* VKDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +226,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-VKTestTusk/Pods-VKTestTusk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyVK/SwiftyVK.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyVK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,8 +246,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E11C03DB21F5DB38000A8C62 /* ViewController.swift in Sources */,
+				E1A5034121F5F3E10053A6AE /* UserInfoController.swift in Sources */,
+				E1A5033821F5EB460053A6AE /* User.swift in Sources */,
+				E11C03DB21F5DB38000A8C62 /* LoginViewController.swift in Sources */,
 				E11C03D921F5DB38000A8C62 /* AppDelegate.swift in Sources */,
+				E1A5033A21F5EB550053A6AE /* Friends.swift in Sources */,
+				E185EA8221F5E14800308D0E /* VKDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +401,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ECB249Q5JR;
 				INFOPLIST_FILE = VKTestTusk/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaniilOnishchenko.VKTestTusk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -367,7 +420,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ECB249Q5JR;
 				INFOPLIST_FILE = VKTestTusk/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DaniilOnishchenko.VKTestTusk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
